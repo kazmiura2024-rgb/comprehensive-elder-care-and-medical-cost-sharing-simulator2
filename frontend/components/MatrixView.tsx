@@ -237,13 +237,15 @@ export const MatrixView: React.FC<MatrixViewProps> = ({
                         {/* 手取り生活費：夫婦世帯時は個人と世帯の両方を併記 */}
                         <div className="pt-2 border-t border-slate-100 flex flex-col gap-1">
                           {isCouple ? (
-                            <div className="flex items-center justify-between text-[11px] font-mono leading-tight bg-slate-50/80 p-1.5 rounded-lg border border-slate-200/80">
-                              <span className="text-slate-600">
-                                個人手取: <strong className="text-slate-900">{cell.result.netDisposableIncomeMonthly}万</strong>
-                              </span>
-                              <span className="text-sky-800 font-bold bg-sky-100/80 px-1.5 py-0.2 rounded border border-sky-200">
-                                世帯計: {cell.result.householdNetDisposableIncomeMonthly}万/月
-                              </span>
+                            <div className="flex flex-col gap-0.5 text-[11px] font-mono leading-tight bg-slate-50/90 p-1.5 rounded-lg border border-slate-200">
+                              <div className="flex items-center justify-between">
+                                <span className="text-slate-500 font-sans text-[10px]">個人手取り:</span>
+                                <strong className="text-slate-800">{cell.result.netDisposableIncomeMonthly} 万円/月</strong>
+                              </div>
+                              <div className="flex items-center justify-between text-sky-900 font-bold border-t border-slate-200/60 pt-0.5">
+                                <span className="font-sans text-[10px] text-sky-700">世帯合計手取り:</span>
+                                <span>{cell.result.householdNetDisposableIncomeMonthly} 万円/月</span>
+                              </div>
                             </div>
                           ) : (
                             <div className="text-[11px] text-slate-600 font-mono">
